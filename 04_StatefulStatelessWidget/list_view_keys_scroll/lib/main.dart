@@ -64,15 +64,20 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Homework example'),
+          bottom: TabBar(
+            tabs: nav.map((String item) => Tab(text: item)).toList(),
+          ),
         ),
         body: TabBarView(
           children: nav.map((name) {
             return ListView(
               key: PageStorageKey(name),
               children: <Widget>[
-                ...fakeData.map((e) {
-                  return Text(e);
-                }).toList()
+                for (var value in data.values)
+                  Image.network(
+                    value.toString(),
+                    width: 100.0,
+                  ),
               ],
             );
           }).toList(),
