@@ -73,11 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             return ListView(
               key: PageStorageKey(name),
               children: <Widget>[
-                for (var value in data.values)
-                  Image.network(
-                    value.toString(),
-                    width: 100.0,
-                  ),
+                for (var value in data.values) Image.network('$value'),
               ],
             );
           }).toList(),
